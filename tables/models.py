@@ -9,12 +9,13 @@ class TeachersAddInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
-    avatar = models.ImageField(upload_to='profile/avatars/', null=True, blank=True)
+    avatar = models.ImageField(upload_to='static/profile/avatars/', null=True, blank=True)
     degree = models.CharField(max_length=200)
     position = models.CharField(max_length=100)
     school = models.CharField(max_length=100)
 
 class Table(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='table')
     author_name = models.CharField( max_length=100)
     patent = models.CharField( max_length=100)
     year = models.CharField( max_length=100)
@@ -28,6 +29,7 @@ class Table(models.Model):
         return self.title
     
 class Table23(models.Model):
+     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='table23')
      subject = models.CharField(max_length=100)
      name_of_partner = models.CharField(max_length=100)
      date_of_contract = models.DateField() 
@@ -44,6 +46,7 @@ class Table23(models.Model):
         return self.availability
      
 class Table26(models.Model):
+     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='table26')
      organisation = models.CharField(max_length=100)
      subject_of_contract = models.CharField(max_length=100)
      directon_of_speciality = models.CharField(max_length=40)
@@ -56,3 +59,6 @@ class Table26(models.Model):
 
      def __str__(self):
         return self.terms_of_the_contract
+     
+# Table(№) -> user.tables.all()
+# change nomer of table in author.related_name !!!

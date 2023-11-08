@@ -15,15 +15,18 @@ class Command(BaseCommand):
         with open(csv_file, 'r', encoding='utf-8') as file:
             csv_reader = csv.DictReader(file)
             for row in csv_reader:
-                password = 'test'
-                name = row['name']
-                surname = row['surname']
-                username = row['email']
-                degree = row['degree']
-                position = row['position']
-                school = row['school']
+                try:
+                    password = 'test'
+                    name = row['name']
+                    surname = row['surname']
+                    username = row['email']
+                    degree = row['degree']
+                    position = row['position']
+                    school = row['school']
 
-                user = User.objects.create_user(username=username, password=password)
-                user_profile = TeachersAddInfo(user=user, avatar='static/profile/avatars/User-Profile-PNG-Clipart-1781504426.jpeg', name=name, surname=surname, degree=degree, position=position, school=school)
-                user_profile.save()
-                self.stdout.write(self.style.SUCCESS(f'Successfully created user {username}'))
+                    user = User.objects.create_user(username=username, password=password)
+                    user_profile = TeachersAddInfo(user=user, avatar='static/profile/avatars/User-Profile-PNG-Clipart-1781504426.jpeg', name=name, surname=surname, degree=degree, position=position, school=school)
+                    user_profile.save()
+                    self.stdout.write(self.style.SUCCESS(f'Successfully created user {username}'))
+                except:
+                    pass
