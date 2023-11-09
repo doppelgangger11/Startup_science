@@ -24,8 +24,21 @@ class Command(BaseCommand):
                     position = row['position']
                     school = row['school']
 
-                    user = User.objects.create_user(username=username, password=password)
-                    user_profile = TeachersAddInfo(user=user, avatar='static/profile/avatars/User-Profile-PNG-Clipart-1781504426.jpeg', name=name, surname=surname, degree=degree, position=position, school=school)
+                    user = User.objects.create_user(
+                            username=username, 
+                            password=password
+                        )
+
+                    user_profile = TeachersAddInfo(
+                            user=user,
+                            avatar='static/profile/avatars/User-Profile-PNG-Clipart-1781504426.jpeg',
+                            name=name,
+                            surname=surname,
+                            degree=degree,
+                            position=position,
+                            school=school
+                        )
+                        
                     user_profile.save()
                     self.stdout.write(self.style.SUCCESS(f'Successfully created user {username}'))
                 except:
