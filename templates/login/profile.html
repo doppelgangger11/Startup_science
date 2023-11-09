@@ -20,6 +20,56 @@
         <p>Degree: {{ user_info.degree }}</p>
         <p>Position: {{ user_info.position }}</p>
         <p>School: {{ user_info.school }}</p>
+
+        <b>Model Table:</b>
+        {% for table in tables %}
+            <div style="margin-left: 20px;">
+                <tr>
+                    <td>{{ table.author_name }}</td>
+                    <td>{{ table.patent }}</td>
+                    <td>{{ table.year }}</td>
+                    <td>{{ table.title }}</td>
+                    <td>{{ table.date }}</td>
+                    <p> </p>
+                </tr>
+            </div>
+        {% endfor %}
+            
+        <p> </p>
+
+        <b>Model Table23:</b>
+        {% for table in tables23 %}
+            <div style="margin-left: 20px;">
+                <tr>
+                    <td>{{ table.subject  }}</td>
+                    <td>{{ table.name_of_partner  }}</td>
+                    <td>{{ table.date_of_contract  }}</td>
+                    <td>{{ table.start_date  }}</td>
+                    <td>{{ table.end_date  }}</td>
+                    <td>{{ table.availability  }}</td>
+                    <td>{{ table.date }}</td>
+                    <p> </p>
+                </tr>
+            </div>
+        {% endfor %}
+        
+        <p> </p>
+        
+        <b>Model Table26:</b>
+        {% for table in tables26 %}
+            <div style="margin-left: 20px;">
+                <tr>
+                    <td>{{ table.organisation }}</td>
+                    <td>{{ table.subject_of_contract }}</td>
+                    <td>{{ table.directon_of_speciality }}</td>
+                    <td>{{ table.date_of_conclusion_of_the_contract }}</td>
+                    <td>{{ table.terms_of_the_contract }}</td>
+                    <td>{{ table.date }}</td>
+                    <p> </p>
+                </tr>
+            </div>
+        {% endfor %}
+
         
     {% else %}
 

@@ -453,7 +453,11 @@ def profile_view(request):
     except TeachersAddInfo.DoesNotExist:
         user_info = None
 
-    return render(request, 'login/profile.html', {'user_info': user_info, 'user': request.user})
+    tables = Table.objects.filter(author=user_info.user_id)
+    tables23 = Table23.objects.filter(author=user_info.user_id)
+    tables26 = Table26.objects.filter(author=user_info.user_id)
+
+    return render(request, 'login/profile.html', {'user_info': user_info, 'user': request.user, "tables": tables, "tables26": tables26, "tables23": tables23})
 
 @login_required
 def logout_view(request):
