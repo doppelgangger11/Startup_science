@@ -13,6 +13,10 @@ class TeachersAddInfo(models.Model):
     degree = models.CharField(max_length=200)
     position = models.CharField(max_length=100)
     school = models.CharField(max_length=100)
+    orcid =  models.CharField(max_length=100, default=None)
+    Scopus_ID = models.CharField(max_length=100, default=None)
+    Web_of_Science_ResearcherID = models.CharField(max_length=100, default=None)
+    scientific_interests = models.CharField(max_length=500, default=None)
 
 class Table(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='table')

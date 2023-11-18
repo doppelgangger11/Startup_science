@@ -23,6 +23,10 @@ class Command(BaseCommand):
                     degree = row['degree']
                     position = row['position']
                     school = row['school']
+                    orcid = row["ORCID"]
+                    Scopus_ID = row["Scopus ID"]
+                    Web_of_Science_ResearcherID = row["Web of Science ResearcherID"]
+                    scientific_interests = row["scientific interests"]
 
                     user = User.objects.create_user(
                             username=username, 
@@ -36,7 +40,11 @@ class Command(BaseCommand):
                             surname=surname,
                             degree=degree,
                             position=position,
-                            school=school
+                            school=school,
+                            orcid=orcid,
+                            Scopus_ID=Scopus_ID,
+                            Web_of_Science_ResearcherID=Web_of_Science_ResearcherID,
+                            scientific_interests=scientific_interests
                         )
                         
                     user_profile.save()
